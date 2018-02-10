@@ -1,12 +1,13 @@
 package com.oreilly.springdata.jdbc.domain;
 
-import static com.mysema.query.types.PathMetadataFactory.*;
-
-import com.mysema.query.types.path.*;
-
-import com.mysema.query.types.PathMetadata;
-import javax.annotation.Generated;
 import com.mysema.query.types.Path;
+import com.mysema.query.types.PathMetadata;
+import com.mysema.query.types.path.NumberPath;
+import com.mysema.query.types.path.StringPath;
+
+import javax.annotation.Generated;
+
+import static com.mysema.query.types.PathMetadataFactory.forVariable;
 
 
 /**
@@ -15,10 +16,8 @@ import com.mysema.query.types.Path;
 @Generated("com.mysema.query.sql.codegen.MetaDataSerializer")
 public class QCustomer extends com.mysema.query.sql.RelationalPathBase<QCustomer> {
 
-    private static final long serialVersionUID = -325328342;
-
     public static final QCustomer customer = new QCustomer("CUSTOMER");
-
+    private static final long serialVersionUID = -325328342;
     public final StringPath emailAddress = createString("EMAIL_ADDRESS");
 
     public final StringPath firstName = createString("FIRST_NAME");
@@ -37,7 +36,7 @@ public class QCustomer extends com.mysema.query.sql.RelationalPathBase<QCustomer
 
     @SuppressWarnings("all")
     public QCustomer(Path<? extends QCustomer> path) {
-        super((Class)path.getType(), path.getMetadata(), "PUBLIC", "CUSTOMER");
+        super((Class) path.getType(), path.getMetadata(), "PUBLIC", "CUSTOMER");
     }
 
     public QCustomer(PathMetadata<?> metadata) {

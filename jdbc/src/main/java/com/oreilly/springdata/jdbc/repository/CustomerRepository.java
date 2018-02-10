@@ -10,13 +10,13 @@ import java.util.List;
  */
 public interface CustomerRepository {
 
-	Customer findById(Long id);
+    Customer findById(Long id);
 
-	List<Customer> findAll();
+    List<Customer> findAll();
 
-	void save(Customer customer);
+    void save(Customer customer);
 
-	void delete(Customer customer);
+    void delete(Customer customer);
 
-	Customer findByEmailAddress(EmailAddress emailAddress);
+    Customer findByEmailAddress(EmailAddress emailAddress);
 }

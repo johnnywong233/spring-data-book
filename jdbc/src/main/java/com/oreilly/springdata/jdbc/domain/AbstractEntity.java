@@ -15,48 +15,42 @@
  */
 package com.oreilly.springdata.jdbc.domain;
 
+import lombok.Data;
+
 /**
  * @author Oliver Gierke
  * @author Thomas Risberg
  */
+@Data
 public class AbstractEntity {
 
-	private Long id;
+    private Long id;
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
 
-	public Long getId() {
-		return id;
-	}
+        if (this == obj) {
+            return true;
+        }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+        if (this.id == null || obj == null || !(this.getClass().equals(obj.getClass()))) {
+            return false;
+        }
 
-	/* 
-	 * (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
+        AbstractEntity that = (AbstractEntity) obj;
 
-		if (this == obj) {
-			return true;
-		}
+        return this.id.equals(that.getId());
+    }
 
-		if (this.id == null || obj == null || !(this.getClass().equals(obj.getClass()))) {
-			return false;
-		}
-
-		AbstractEntity that = (AbstractEntity) obj;
-
-		return this.id.equals(that.getId());
-	}
-
-	/* 
-	 * (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		return id == null ? 0 : id.hashCode();
-	}
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        return id == null ? 0 : id.hashCode();
+    }
 }
